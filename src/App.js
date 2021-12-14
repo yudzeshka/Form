@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Form from "./Form";
+import FormFormik from "./FormFormik";
 
 function App() {
-  return <Form />;
+  return <FormFormik />;
 }
 
 export default App;
