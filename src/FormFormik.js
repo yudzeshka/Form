@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import React, { Component } from "react";
 import "./App.css";
 import * as Yup from "yup";
@@ -12,7 +12,7 @@ export default class FormFormik extends Component {
           checkOut: "",
           adults: "",
           children: "",
-          more18: "",
+          more18: false,
         }}
         onSubmit={(formValues) => {
           alert(JSON.stringify(formValues, null, 2));
@@ -22,6 +22,10 @@ export default class FormFormik extends Component {
             .required("is required")
             .max(20, "should be less than 20 characters")
             .min(2, "to short"),
+          more18: Yup.bool().oneOf(
+            [true],
+            "Accept Terms & Conditions is required"
+          ),
         })}
       >
         {({ errors, touched, isValid }) => (
@@ -30,14 +34,21 @@ export default class FormFormik extends Component {
             <Form>
               <div>
                 <Field
-                  className="where"
+                  className={
+                    "where" + (errors.where && touched.where ? "error" : "")
+                  }
                   id="where"
                   name="where"
                   placeholder="Where are you going?"
                 ></Field>
-                {errors.where && touched.where ? (
+                <ErrorMessage
+                  name="where"
+                  component="div"
+                  className="invalid-feedback"
+                />
+                {/* {errors.where && touched.where ? (
                   <div>{errors.where}</div>
-                ) : null}
+                ) : null} */}
               </div>
               <div>
                 <label htmlFor="checkIn" className="check">
@@ -75,6 +86,11 @@ export default class FormFormik extends Component {
                   I confirm that I am over 18 years old
                 </label>
                 <Field type="checkbox" id="more18" name="more18"></Field>
+                <ErrorMessage
+                  name="more18"
+                  component="div"
+                  className="invalid-feedback"
+                />
               </div>
               <div>
                 <button type="submit" disabled={!isValid}>

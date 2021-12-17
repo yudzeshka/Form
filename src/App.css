@@ -69,3 +69,8 @@ legend {
 input:hover {
   background-color: rgb(229, 227, 231);
 }
+
+.whereerror {
+  border: 1px solid red;
+  width: 90%;
+}
