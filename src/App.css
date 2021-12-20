@@ -14,7 +14,6 @@ body {
 .container {
   margin-top: 50px;
   width: 350px;
-  height: 450px;
   background-color: rgb(198, 204, 202);
   display: flex;
   flex-direction: column;
@@ -70,7 +69,21 @@ input:hover {
   background-color: rgb(229, 227, 231);
 }
 
-.whereerror {
+.whereErr {
   border: 1px solid red;
   width: 90%;
+}
+
+.error {
+  font-size: 10px;
+  color: red;
+  margin-top: -7px;
+}
+
+.checkErr {
+  border: 1px solid red;
+}
+
+.guestsErr {
+  border: 1px solid red;
 }
