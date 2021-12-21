@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import "./App.css";
 import * as Yup from "yup";
 import FormInput from "./FormInput";
-import FormInputEmptyLabel from "./FormInputEmptyLabel";
 export default class FormFormik extends Component {
   render() {
     return (
@@ -43,12 +42,12 @@ export default class FormFormik extends Component {
             <Form>
               <Field
                 className={
-                  "where" + (errors.where && touched.where ? "Err" : "")
+                  "where " + (errors.where && touched.where ? "whereErr" : "")
                 }
                 id="where"
                 name="where"
                 placeholder="Where are you going?"
-                component={FormInputEmptyLabel}
+                component={FormInput}
               ></Field>
               <Field
                 className={errors.checkIn && touched.checkIn ? "checkErr" : ""}

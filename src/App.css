@@ -42,9 +42,9 @@ button {
   font-size: 20px;
 }
 
-label {
+/* label {
   margin: 20px;
-}
+} */
 
 .where {
   width: 90%;
@@ -71,7 +71,6 @@ input:hover {
 
 .whereErr {
   border: 1px solid red;
-  width: 90%;
 }
 
 .error {
